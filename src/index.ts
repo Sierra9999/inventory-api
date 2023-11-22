@@ -3,6 +3,8 @@ import express, { Request, Response } from "express"
 const app = express()
 const port = 3000
 
+app.use(express.json())
+
 app.get('/', (req: Request, res: Response) => {
   const data = {
     name : 'inventory api',
@@ -10,7 +12,7 @@ app.get('/', (req: Request, res: Response) => {
   }
   res.json(data)
 })
-app.use(express.json())
+
 app.post('/add-item',(req : Request, res: Response) => {
   const newItem = req.body
   res.json({response : newItem})

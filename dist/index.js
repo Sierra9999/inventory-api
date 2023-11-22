@@ -13,6 +13,11 @@ app.get('/', (req, res) => {
     };
     res.json(data);
 });
+app.use(express_1.default.json());
+app.post('/add-item', (req, res) => {
+    const newItem = req.body;
+    res.json({ response: newItem });
+});
 app.listen(port, () => {
     console.log(`server running at port ${port}`);
 });
